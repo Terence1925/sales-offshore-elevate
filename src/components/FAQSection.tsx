@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
 
 const faqs = [
   { q: "How quickly can we get started?", a: "We can have your dedicated remote sales team operational within 7–14 business days. Our streamlined onboarding process ensures a fast, seamless setup so you can start generating results quickly." },
@@ -15,22 +16,32 @@ export default function FAQSection() {
   return (
     <section id="faq" className="section-padding-lg bg-background">
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-secondary mb-3">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary">Frequently Asked Questions</h2>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="section-label">FAQ</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight">
+            Frequently Asked <span className="text-gradient">Questions</span>
+          </h2>
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((f, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="card-elevated px-6 border-none">
-                <AccordionTrigger className="text-left text-base font-semibold text-primary hover:no-underline py-5">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+              >
+                <AccordionItem value={`item-${i}`} className="card-luxury px-7 py-1 border-none">
+                  <AccordionTrigger className="text-left text-[15px] font-semibold text-primary hover:no-underline py-5 tracking-tight">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5 font-light">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
         </div>
