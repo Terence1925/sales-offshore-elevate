@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "@phosphor-icons/react";
+import { CheckCircle, ArrowRight, Play } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-team.png";
 
@@ -11,68 +11,133 @@ const trustPoints = [
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
-      {/* Subtle background accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-surface -z-10 hidden lg:block rounded-bl-[80px]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden hero-gradient noise-overlay">
+      {/* Grid pattern */}
+      <div className="absolute inset-0 grid-pattern" />
+      {/* Gradient overlay for emerald glow */}
+      <div className="absolute inset-0 hero-gradient-overlay" />
+      {/* Radial light from top right */}
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.07]" style={{ background: "radial-gradient(circle, hsl(163 98% 29%) 0%, transparent 70%)" }} />
 
-      <div className="container-max px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative container-max px-4 sm:px-6 lg:px-8 py-32 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
           >
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-secondary mb-4">
-              Outsourced Sales Agency
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-primary mb-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur-sm mb-8"
+            >
+              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+              <span className="text-xs font-medium text-primary-foreground/80 tracking-wide">
+                #1 Outsourced Sales Agency in the Philippines
+              </span>
+            </motion.div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.08] tracking-tight text-primary-foreground mb-6">
               Home of Top{" "}
-              <span className="text-gradient">Remote Sales Talent</span>
+              <span className="relative inline-block">
+                <span className="text-gradient">Remote Sales</span>
+              </span>
+              <br />
+              <span className="text-gradient">Talent</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Outsource Your Sales to the Philippines &amp; Save Up to 70% on Costs — Without Compromising Performance.
+
+            <p className="text-lg lg:text-xl text-primary-foreground/60 leading-relaxed mb-10 max-w-lg font-light">
+              Outsource your sales to the Philippines &amp; save up to 70% on costs — without compromising performance.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-8">
-              <Button variant="hero" size="xl" asChild>
+            <div className="flex flex-wrap gap-4 mb-10">
+              <Button variant="hero" size="xl" className="group" asChild>
                 <a href="https://cal.com/sales-offshore/30min" target="_blank" rel="noopener noreferrer">
                   Book a Strategy Call
+                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="hero-outline" size="xl" asChild>
-                <a href="#contact">Get a Custom Quote</a>
+              <Button
+                variant="ghost"
+                size="xl"
+                className="text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10 border border-primary-foreground/10"
+                asChild
+              >
+                <a href="#contact">
+                  Get a Custom Quote
+                </a>
               </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
-              {trustPoints.map((t) => (
-                <div key={t} className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+              {trustPoints.map((t, i) => (
+                <motion.div
+                  key={t}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
+                  className="flex items-center gap-2.5"
+                >
                   <CheckCircle size={18} weight="fill" className="text-secondary flex-shrink-0" />
-                  <span>{t}</span>
-                </div>
+                  <span className="text-[13px] text-primary-foreground/50 font-medium">{t}</span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           {/* Right */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative"
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+            className="relative hidden lg:block"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
-              <img src={heroImg} alt="Professional Filipino remote sales team at work" className="w-full h-auto object-cover aspect-[4/3]" />
-            </div>
-            {/* Floating stat card */}
-            <div className="absolute -bottom-4 -left-4 sm:bottom-6 sm:-left-6 bg-card rounded-xl p-4 shadow-xl border border-border/50">
-              <p className="text-2xl font-bold text-primary">70%</p>
-              <p className="text-xs text-muted-foreground">Cost Savings</p>
+            {/* Main image with luxury frame */}
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden ring-1 ring-primary-foreground/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
+                <img src={heroImg} alt="Professional Filipino remote sales team at work" className="w-full h-auto object-cover aspect-[4/3]" />
+                {/* Gradient overlay on image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+              </div>
+
+              {/* Floating stat card - top right */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+                className="absolute -top-4 -right-4 card-glass-dark p-4 px-5 animate-float"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <Play size={16} weight="fill" className="text-secondary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-primary-foreground">250+</p>
+                    <p className="text-[11px] text-primary-foreground/50">Pros Placed</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating stat card - bottom left */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1, duration: 0.5 }}
+                className="absolute -bottom-6 -left-6 card-glass-dark p-5 animate-float"
+                style={{ animationDelay: "1s" }}
+              >
+                <p className="text-3xl font-extrabold stat-number mb-0.5">70%</p>
+                <p className="text-[11px] text-primary-foreground/50 font-medium">Average Cost Savings</p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }
