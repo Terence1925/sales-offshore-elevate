@@ -12,8 +12,6 @@ const trustPoints = [
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden hero-gradient noise-overlay">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 grid-pattern" />
       {/* Gradient overlay for emerald glow */}
       <div className="absolute inset-0 hero-gradient-overlay" />
       {/* Radial light from top right */}
