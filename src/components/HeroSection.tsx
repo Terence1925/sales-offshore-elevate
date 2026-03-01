@@ -17,9 +17,9 @@ export default function HeroSection() {
       {/* Radial light from top right */}
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.07]" style={{ background: "radial-gradient(circle, hsl(163 98% 29%) 0%, transparent 70%)" }} />
 
-      <div className="relative container-max px-4 sm:px-6 lg:px-8 py-32 lg:py-0">
+      <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left */}
+          {/* Left - Text */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -85,18 +85,16 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right */}
+          {/* Right - Image */}
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="relative"
+            className="relative order-first lg:order-last"
           >
-            {/* Main image with luxury frame */}
             <div className="relative">
               <div className="rounded-3xl overflow-hidden ring-1 ring-primary-foreground/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-                <img src={heroImg} alt="Professional Filipino remote sales team at work" className="w-full h-auto object-cover aspect-[4/3]" />
-                {/* Gradient overlay on image */}
+                <img src={heroImg} alt="Professional Filipino remote sales team at work" className="w-full h-auto object-cover aspect-[3/4]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
               </div>
 
