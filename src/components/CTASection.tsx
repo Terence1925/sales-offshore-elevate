@@ -8,7 +8,7 @@ export default function CTASection() {
 
   return (
     <section className="relative overflow-hidden cta-gradient noise-overlay">
-      <div className="absolute inset-0 grid-pattern" />
+      
       {/* Emerald glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-[0.08]" style={{ background: "radial-gradient(ellipse, hsl(163 98% 29%) 0%, transparent 70%)" }} />
 

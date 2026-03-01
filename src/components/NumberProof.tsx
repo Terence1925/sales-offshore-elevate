@@ -14,8 +14,6 @@ export default function NumberProof() {
 
   return (
     <section className="relative overflow-hidden hero-gradient noise-overlay">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 grid-pattern" />
       {/* Emerald accent glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full opacity-[0.06]" style={{ background: "radial-gradient(ellipse, hsl(163 98% 29%) 0%, transparent 70%)" }} />
 
