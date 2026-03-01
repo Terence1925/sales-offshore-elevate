@@ -90,7 +90,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="relative hidden lg:block"
+            className="relative"
           >
             {/* Main image with luxury frame */}
             <div className="relative">
