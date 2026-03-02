@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight, Play } from "@phosphor-icons/react";
+import { CheckCircle, ArrowRight } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-team.png";
 
@@ -90,43 +90,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="relative order-first lg:order-last"
+            className="relative order-first lg:order-last max-w-md mx-auto"
           >
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden ring-1 ring-primary-foreground/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-                <img src={heroImg} alt="Professional Filipino remote sales team at work" className="w-full h-auto object-cover aspect-[3/4]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
-              </div>
-
-              {/* Floating stat card - top right */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -top-4 -right-4 card-glass-dark p-4 px-5 animate-float"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
-                    <Play size={16} weight="fill" className="text-secondary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-primary-foreground">250+</p>
-                    <p className="text-[11px] text-primary-foreground/50">Pros Placed</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating stat card - bottom left */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -bottom-6 -left-6 card-glass-dark p-5 animate-float"
-                style={{ animationDelay: "1s" }}
-              >
-                <p className="text-3xl font-extrabold stat-number mb-0.5">70%</p>
-                <p className="text-[11px] text-primary-foreground/50 font-medium">Average Cost Savings</p>
-              </motion.div>
+            <div className="rounded-3xl overflow-hidden ring-1 ring-primary-foreground/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
+              <img src={heroImg} alt="Professional Filipino remote sales team at work" className="w-full h-auto object-cover aspect-[4/5]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
