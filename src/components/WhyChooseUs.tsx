@@ -41,6 +41,10 @@ export default function WhyChooseUs() {
 
   return (
     <section id="why-us" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8" style={{ background: "hsl(163 98% 29%)" }}>
+      {/* Decorative circles */}
+      <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-[0.08]" style={{ background: "radial-gradient(circle, white 0%, transparent 70%)" }} />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full opacity-[0.06]" style={{ background: "radial-gradient(circle, white 0%, transparent 70%)" }} />
+
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
           {/* Left - Image */}
@@ -49,6 +53,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            className="relative"
           >
             <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
               <img
@@ -57,6 +62,17 @@ export default function WhyChooseUs() {
                 className="w-full h-auto object-cover aspect-[4/3]"
               />
             </div>
+            {/* Floating badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl"
+            >
+              <p className="text-2xl sm:text-3xl font-extrabold text-primary">15+</p>
+              <p className="text-[10px] sm:text-xs text-muted-foreground font-medium">Years Experience</p>
+            </motion.div>
           </motion.div>
 
           {/* Right - Content */}
@@ -73,11 +89,12 @@ export default function WhyChooseUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.5 }}
-                  className="group"
+                  whileHover={{ x: 6 }}
+                  className="group cursor-default"
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/30 flex items-center justify-center mb-3 sm:mb-4 transition-all duration-400 group-hover:border-white/60 group-hover:scale-105">
-                    <r.icon size={24} className="text-white sm:hidden" weight="light" />
-                    <r.icon size={28} className="text-white hidden sm:block" weight="light" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-3 sm:mb-4 transition-all duration-400 group-hover:bg-white/20 group-hover:scale-110 group-hover:rotate-3">
+                    <r.icon size={24} className="text-white sm:hidden" weight="duotone" />
+                    <r.icon size={28} className="text-white hidden sm:block" weight="duotone" />
                   </div>
                   <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2 tracking-tight">{r.title}</h3>
                   <p className="text-sm sm:text-[15px] text-white/70 leading-relaxed font-light">{r.desc}</p>

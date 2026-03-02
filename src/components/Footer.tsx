@@ -1,4 +1,5 @@
 import { Clock, MapPin, Phone, EnvelopeSimple, LinkedinLogo, FacebookLogo, InstagramLogo } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 const footerItems = [
   { icon: Clock, title: "Office Hours", text: "Mon - Fri, 9 am - 5 pm ET" },
@@ -27,15 +28,15 @@ export default function Footer() {
               <div className="h-6 sm:h-7 mb-3 sm:mb-4" aria-hidden />
               <h4 className="text-xs sm:text-sm font-semibold text-primary-foreground mb-2 sm:mb-3">Follow Us</h4>
               <div className="flex gap-2.5 sm:gap-3">
-                <a href="#" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
+                <a href="#" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 hover:scale-110 transition-all duration-300">
                   <LinkedinLogo size={14} className="text-primary-foreground/70 sm:hidden" />
                   <LinkedinLogo size={16} className="text-primary-foreground/70 hidden sm:block" />
                 </a>
-                <a href="#" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
+                <a href="#" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 hover:scale-110 transition-all duration-300">
                   <FacebookLogo size={14} className="text-primary-foreground/70 sm:hidden" />
                   <FacebookLogo size={16} className="text-primary-foreground/70 hidden sm:block" />
                 </a>
-                <a href="#" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
+                <a href="#" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 hover:scale-110 transition-all duration-300">
                   <InstagramLogo size={14} className="text-primary-foreground/70 sm:hidden" />
                   <InstagramLogo size={16} className="text-primary-foreground/70 hidden sm:block" />
                 </a>
@@ -45,8 +46,16 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10">
-          <div className="container-max px-5 sm:px-6 lg:px-8 py-5 sm:py-7 text-center">
+          <div className="container-max px-5 sm:px-6 lg:px-8 py-5 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-[10px] sm:text-xs text-primary-foreground/30">© 2025 Sales Offshore. All rights reserved.</p>
+            <div className="flex gap-4 sm:gap-6">
+              <Link to="/privacy-policy" className="text-[10px] sm:text-xs text-primary-foreground/30 hover:text-primary-foreground/60 transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-and-conditions" className="text-[10px] sm:text-xs text-primary-foreground/30 hover:text-primary-foreground/60 transition-colors">
+                Terms & Conditions
+              </Link>
+            </div>
           </div>
         </div>
       </div>

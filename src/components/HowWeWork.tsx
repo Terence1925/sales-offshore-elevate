@@ -41,6 +41,7 @@ export default function HowWeWork() {
     <section id="how-we-work" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 hero-gradient noise-overlay">
       <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="text-center mb-10 sm:mb-16 lg:mb-20">
+          <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3">OUR PROCESS</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground tracking-tight">
             Hire Outsourced Sales Staff
           </h2>
@@ -54,12 +55,17 @@ export default function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="rounded-2xl border border-primary-foreground/15 p-6 sm:p-8 lg:p-10 group hover:border-secondary/40 transition-all duration-400"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="rounded-2xl border border-primary-foreground/15 p-6 sm:p-8 lg:p-10 group hover:border-secondary/50 transition-all duration-400 cursor-default relative overflow-hidden"
               style={{ background: "hsl(203 80% 22% / 0.5)" }}
             >
-              <p className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-primary-foreground/90 mb-4 sm:mb-6 tracking-tight">{s.num}</p>
-              <h3 className="text-base sm:text-lg font-bold text-primary-foreground mb-2 sm:mb-3 tracking-tight">{s.title}</h3>
-              <p className="text-sm sm:text-[15px] text-primary-foreground/50 leading-relaxed font-light">{s.desc}</p>
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "radial-gradient(circle at 50% 0%, hsl(163 98% 29% / 0.08), transparent 60%)" }} />
+              <div className="relative">
+                <p className="text-5xl sm:text-6xl lg:text-7xl font-extrabold stat-number mb-4 sm:mb-6 tracking-tight opacity-80 group-hover:opacity-100 transition-opacity">{s.num}</p>
+                <h3 className="text-base sm:text-lg font-bold text-primary-foreground mb-2 sm:mb-3 tracking-tight">{s.title}</h3>
+                <p className="text-sm sm:text-[15px] text-primary-foreground/50 leading-relaxed font-light">{s.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
