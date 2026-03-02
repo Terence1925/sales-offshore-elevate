@@ -1,15 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
-
-const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "Process", href: "#how-we-work" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
-];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,35 +18,10 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-max flex items-center justify-between h-20 lg:h-24 px-4 sm:px-6 lg:px-8">
+      <div className="container-max flex items-center h-20 px-4 sm:px-6 lg:px-8">
         <a href="#" className="flex items-center gap-3 group">
-          <img src={logo} alt="Sales Offshore" className="h-10 w-10 transition-transform duration-300 group-hover:scale-105" />
+          <img src={logo} alt="Sales Offshore" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
         </a>
-
-        {/* Desktop nav */}
-        <div className="flex items-center gap-1">
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className={`px-4 py-2 text-[13px] font-medium rounded-lg transition-all duration-200 ${
-                scrolled
-                  ? "text-muted-foreground hover:text-primary hover:bg-muted/50"
-                  : "text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10"
-              }`}
-            >
-              {l.label}
-            </a>
-          ))}
-          <div className="ml-4">
-            <Button variant="hero" size="default" asChild>
-              <a href="https://cal.com/sales-offshore/30min" target="_blank" rel="noopener noreferrer">
-                Book a Call
-              </a>
-            </Button>
-          </div>
-        </div>
-
       </div>
     </nav>
   );
