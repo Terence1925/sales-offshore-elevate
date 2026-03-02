@@ -1,72 +1,69 @@
-import { Trophy, CurrencyDollar, Rocket, ArrowsOutSimple, Crosshair, Star } from "@phosphor-icons/react";
+import { Trophy, CurrencyDollar, Lightning, ArrowsOutSimple, Crosshair, Star } from "@phosphor-icons/react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
-import whyImg from "@/assets/why-choose.png";
 
 const reasons = [
-  { icon: Trophy, title: "Proven Experience", desc: "15+ years of combined industry expertise delivering tested and refined sales systems." },
-  { icon: CurrencyDollar, title: "Cost-Effective, High ROI", desc: "Save up to 70% compared to U.S.-based teams while maintaining elite standards." },
-  { icon: Rocket, title: "Fast Deployment", desc: "Your remote sales team operational in days, not weeks." },
-  { icon: ArrowsOutSimple, title: "Scalable & Flexible", desc: "Easily scale up or down based on growth and demand." },
-  { icon: Crosshair, title: "Sales-Only Expertise", desc: "We specialize exclusively in sales outsourcing — nothing else." },
-  { icon: Star, title: "Top Filipino Talent", desc: "Highly skilled, performance-driven professionals selected for results." },
+  {
+    icon: Star,
+    title: "Proven Experience",
+    desc: "Our founders bring over 15+ years of industry experience, providing you with innovative sales strategies and effective solutions that are tested, refined, and proven to work.",
+  },
+  {
+    icon: CurrencyDollar,
+    title: "Cost-Effective",
+    desc: "High ROI. Save up to 70% on operational costs compared to hiring a U.S.-based team, while maintaining the highest standards of quality and performance.",
+  },
+  {
+    icon: Lightning,
+    title: "Quick Turnaround",
+    desc: "Fast setup. Get your remote sales team up and running in days, not weeks, so you can focus on scaling while we handle the heavy lifting.",
+  },
+  {
+    icon: ArrowsOutSimple,
+    title: "Scalable & Flexible",
+    desc: "From cold calling to lead generation, our scalable services can be customized to meet your unique business needs, adapting as your company grows.",
+  },
+  {
+    icon: Crosshair,
+    title: "Sales-Only Expertise",
+    desc: "We are the only outsourcing company that specializes exclusively in sales, ensuring a deep focus on driving results and growth for your business.",
+  },
+  {
+    icon: Trophy,
+    title: "Top Talent",
+    desc: "Access a pool of highly skilled, results-driven remote sales professionals from the Philippines, selected for their ability to deliver exceptional sales performance.",
+  },
 ];
 
 export default function WhyChooseUs() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="why-us" className="section-padding-lg bg-surface relative overflow-hidden">
-      {/* Subtle background accent */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.03]" style={{ background: "radial-gradient(circle, hsl(163 98% 29%) 0%, transparent 70%)" }} />
-
+    <section id="why-us" className="relative overflow-hidden py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8" style={{ background: "hsl(163 98% 29%)" }}>
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative order-2 lg:order-1"
-          >
-            <div className="rounded-3xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)]">
-              <img src={whyImg} alt="Sales Offshore professional" className="w-full h-auto object-cover aspect-[4/3]" />
-            </div>
-            {/* Decorative accent */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl border-2 border-secondary/20 -z-10" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-secondary/10 -z-10" />
-          </motion.div>
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            Why Choose Us?
+          </h2>
+        </div>
 
-          {/* Content */}
-          <div className="order-1 lg:order-2">
-            <span className="section-label">Why Us</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-12 tracking-tight leading-tight">
-              Why Leading Companies
-              <br className="hidden sm:block" />
-              Choose <span className="text-gradient">Sales Offshore</span>
-            </h2>
-            <div className="space-y-6">
-              {reasons.map((r, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="flex gap-4 group"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-secondary/8 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-secondary/15 group-hover:scale-105">
-                    <r.icon size={20} className="text-secondary" weight="duotone" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-primary mb-1 tracking-tight">{r.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed font-light">{r.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+          {reasons.map((r, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="text-center group"
+            >
+              <div className="w-24 h-24 rounded-full border-2 border-white/30 flex items-center justify-center mx-auto mb-6 transition-all duration-400 group-hover:border-white/60 group-hover:scale-105">
+                <r.icon size={40} className="text-white" weight="light" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-3 tracking-tight">{r.title}</h3>
+              <p className="text-sm text-white/75 leading-relaxed font-light max-w-xs mx-auto">{r.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

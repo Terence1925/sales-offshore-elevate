@@ -1,112 +1,81 @@
-import { useState, useEffect } from "react";
-import { Quotes, CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { Quotes } from "@phosphor-icons/react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { motion, AnimatePresence } from "framer-motion";
-import t1 from "@/assets/testimonial-1.png";
-import t2 from "@/assets/testimonial-2.png";
-import t3 from "@/assets/testimonial-3.png";
+import { motion } from "framer-motion";
+import heroImg from "@/assets/hero-team.png";
 
-const testimonials = [
-  {
-    img: t1,
-    name: "David M.",
-    role: "CEO | SaaS Company, CA",
-    text: "Outsourcing our sales was a game-changer. We increased qualified leads by 25% while significantly reducing costs. The performance matches U.S.-based teams.",
-  },
-  {
-    img: t2,
-    name: "Rebecca W.",
-    role: "VP of Sales | E-Commerce Brand, NY",
-    text: "Sales Offshore helped us scale rapidly without overspending. Their team integrated seamlessly and delivered exceptional results.",
-  },
-  {
-    img: t3,
-    name: "Jason L.",
-    role: "Founder & COO | Digital Agency, FL",
-    text: "We've improved conversions, reduced costs, and gained a reliable sales engine. The impact on revenue growth has been substantial.",
-  },
+const stats = [
+  { value: "35+", label: "CLIENTS SERVED" },
+  { value: "250+", label: "SALES PROFESSIONALS PLACED" },
+  { value: "2K+", label: "DEALS CLOSED" },
+  { value: "70%", label: "AVERAGE COST SAVINGS" },
 ];
 
 export default function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
   const { ref, isVisible } = useScrollAnimation();
 
-  useEffect(() => {
-    const timer = setInterval(() => setCurrent((c) => (c + 1) % testimonials.length), 6000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section id="testimonials" className="section-padding-lg bg-surface relative overflow-hidden">
-      {/* Decorative */}
-      <div className="absolute top-20 right-20 w-64 h-64 rounded-full opacity-[0.03]" style={{ background: "radial-gradient(circle, hsl(163 98% 29%) 0%, transparent 70%)" }} />
-
-      <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="section-label">Testimonials</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight">
-            What Our <span className="text-gradient">Clients Say</span>
-          </h2>
+    <section id="testimonials" className="relative overflow-hidden">
+      {/* Quote section with background image */}
+      <div className="relative min-h-[400px] flex items-center justify-center py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="Sales office" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "hsl(203 90% 17% / 0.8)" }} />
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="card-luxury p-10 sm:p-14 lg:p-16 text-center relative">
-            {/* Large decorative quote */}
-            <Quotes size={64} weight="fill" className="text-secondary/[0.06] mx-auto mb-8" />
+        <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 max-w-5xl mx-auto">
+            {/* Quote icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Quotes size={100} weight="fill" className="text-white/80 flex-shrink-0" />
+            </motion.div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-              >
-                <p className="text-xl sm:text-2xl text-primary leading-relaxed mb-10 font-light max-w-2xl mx-auto">
-                  "{testimonials[current].text}"
-                </p>
-                <div className="flex items-center justify-center gap-4">
-                  <img
-                    src={testimonials[current].img}
-                    alt={testimonials[current].name}
-                    className="w-14 h-14 rounded-full object-cover ring-2 ring-secondary/20 ring-offset-2 ring-offset-card"
-                  />
-                  <div className="text-left">
-                    <p className="font-semibold text-primary text-sm">{testimonials[current].name}</p>
-                    <p className="text-xs text-muted-foreground">{testimonials[current].role}</p>
-                  </div>
+            {/* Quote text */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              <p className="text-xl sm:text-2xl lg:text-3xl text-white leading-relaxed font-light italic mb-6">
+                "Outsourcing sales to the Philippines is more than a trend—it's the future of business growth, driven by top-tier talent and cost efficiency."
+              </p>
+              <p className="text-sm text-white/60 font-medium">— Sales Offshore Team</p>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats bar */}
+      <div className="relative bg-background">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container-max px-4 sm:px-6 lg:px-8 -mt-12"
+        >
+          <div className="bg-card rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border border-border/30 py-10 sm:py-12 px-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6">
+              {stats.map((s, i) => (
+                <div key={i} className="text-center relative">
+                  <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 tracking-tight">{s.value}</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground font-semibold tracking-[0.15em] uppercase">{s.label}</p>
+                  {i < stats.length - 1 && (
+                    <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-border" />
+                  )}
                 </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Nav arrows */}
-            <button
-              onClick={() => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length)}
-              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-muted/50 flex items-center justify-center hover:bg-muted transition-all duration-200 hover:scale-105"
-            >
-              <CaretLeft size={18} className="text-primary" weight="bold" />
-            </button>
-            <button
-              onClick={() => setCurrent((c) => (c + 1) % testimonials.length)}
-              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-muted/50 flex items-center justify-center hover:bg-muted transition-all duration-200 hover:scale-105"
-            >
-              <CaretRight size={18} className="text-primary" weight="bold" />
-            </button>
+              ))}
+            </div>
           </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2.5 mt-8">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  i === current ? "w-8 h-2.5 bg-secondary" : "w-2.5 h-2.5 bg-border hover:bg-muted-foreground/30"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        </motion.div>
+        {/* Spacer for the overlapping card */}
+        <div className="h-12" />
       </div>
     </section>
   );
