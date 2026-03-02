@@ -40,9 +40,9 @@ export default function WhyChooseUs() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="why-us" className="relative overflow-hidden py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8" style={{ background: "hsl(163 98% 29%)" }}>
+    <section id="why-us" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8" style={{ background: "hsl(163 98% 29%)" }}>
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
           {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src={whyChooseImg}
                 alt="Our professional sales team collaborating"
@@ -61,11 +61,11 @@ export default function WhyChooseUs() {
 
           {/* Right - Content */}
           <div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-8 sm:mb-12">
               Why Choose Us?
             </h2>
 
-            <div className="grid sm:grid-cols-2 gap-x-10 gap-y-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 sm:gap-y-10">
               {reasons.map((r, i) => (
                 <motion.div
                   key={i}
@@ -75,11 +75,12 @@ export default function WhyChooseUs() {
                   transition={{ delay: i * 0.08, duration: 0.5 }}
                   className="group"
                 >
-                  <div className="w-14 h-14 rounded-full border-2 border-white/30 flex items-center justify-center mb-4 transition-all duration-400 group-hover:border-white/60 group-hover:scale-105">
-                    <r.icon size={28} className="text-white" weight="light" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/30 flex items-center justify-center mb-3 sm:mb-4 transition-all duration-400 group-hover:border-white/60 group-hover:scale-105">
+                    <r.icon size={24} className="text-white sm:hidden" weight="light" />
+                    <r.icon size={28} className="text-white hidden sm:block" weight="light" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{r.title}</h3>
-                  <p className="text-[15px] text-white/70 leading-relaxed font-light">{r.desc}</p>
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2 tracking-tight">{r.title}</h3>
+                  <p className="text-sm sm:text-[15px] text-white/70 leading-relaxed font-light">{r.desc}</p>
                 </motion.div>
               ))}
             </div>

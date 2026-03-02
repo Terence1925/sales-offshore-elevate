@@ -14,11 +14,10 @@ export default function NumberProof() {
 
   return (
     <section className="relative overflow-hidden hero-gradient noise-overlay">
-      {/* Emerald accent glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full opacity-[0.06]" style={{ background: "radial-gradient(ellipse, hsl(163 98% 29%) 0%, transparent 70%)" }} />
 
-      <div ref={ref} className={`relative container-max px-4 sm:px-6 lg:px-8 py-20 sm:py-28 fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-6">
+      <div ref={ref} className={`relative container-max px-5 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 fade-in-section ${isVisible ? "is-visible" : ""}`}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
           {stats.map((s, i) => (
             <motion.div
               key={i}
@@ -28,9 +27,8 @@ export default function NumberProof() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="text-center relative"
             >
-              <p className="text-4xl sm:text-5xl lg:text-6xl font-extrabold stat-number mb-2">{s.value}</p>
-              <p className="text-xs sm:text-sm text-primary-foreground/40 font-medium tracking-wide">{s.label}</p>
-              {/* Divider between items on desktop */}
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold stat-number mb-1 sm:mb-2">{s.value}</p>
+              <p className="text-[10px] sm:text-xs lg:text-sm text-primary-foreground/40 font-medium tracking-wide">{s.label}</p>
               {i < stats.length - 1 && (
                 <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-primary-foreground/10" />
               )}

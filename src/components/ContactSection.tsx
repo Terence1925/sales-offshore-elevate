@@ -18,18 +18,18 @@ export default function ContactSection() {
   const update = (field: string, value: string) => setForm((f) => ({ ...f, [field]: value }));
 
   return (
-    <section id="contact" className="section-padding-lg bg-surface relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-surface relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.02]" style={{ background: "radial-gradient(circle, hsl(163 98% 29%) 0%, transparent 70%)" }} />
 
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="section-label">Contact</span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
             Get in <span className="text-gradient">Touch</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-16">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -38,13 +38,13 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <div className="card-luxury p-8 sm:p-10">
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
+            <div className="card-luxury p-5 sm:p-8 lg:p-10">
+              <form onSubmit={(e) => e.preventDefault()} className="space-y-4 sm:space-y-5">
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
                   <input type="text" placeholder="First Name" value={form.firstName} onChange={(e) => update("firstName", e.target.value)} className="input-luxury" />
                   <input type="text" placeholder="Last Name" value={form.lastName} onChange={(e) => update("lastName", e.target.value)} className="input-luxury" />
                 </div>
-                <div className="grid sm:grid-cols-2 gap-5">
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
                   <input type="email" placeholder="Email" value={form.email} onChange={(e) => update("email", e.target.value)} className="input-luxury" />
                   <input type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => update("phone", e.target.value)} className="input-luxury" />
                 </div>
@@ -64,16 +64,17 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2 space-y-8"
+            className="lg:col-span-2 space-y-6 sm:space-y-8"
           >
             {contactInfo.map((item, i) => (
-              <div key={i} className="flex gap-4 group">
-                <div className="w-11 h-11 rounded-xl bg-secondary/8 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-secondary/15 group-hover:scale-105">
-                  <item.icon size={20} className="text-secondary" weight="duotone" />
+              <div key={i} className="flex gap-3 sm:gap-4 group">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-secondary/8 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-secondary/15 group-hover:scale-105">
+                  <item.icon size={18} className="text-secondary sm:hidden" weight="duotone" />
+                  <item.icon size={20} className="text-secondary hidden sm:block" weight="duotone" />
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-primary mb-0.5">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.text}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">{item.text}</p>
                 </div>
               </div>
             ))}
