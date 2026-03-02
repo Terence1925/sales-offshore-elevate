@@ -1,7 +1,35 @@
-import { Quotes } from "@phosphor-icons/react";
+import { Quotes, Star } from "@phosphor-icons/react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-team.png";
+import testimonial1 from "@/assets/testimonial-1.png";
+import testimonial2 from "@/assets/testimonial-2.png";
+import testimonial3 from "@/assets/testimonial-3.png";
+import { useEffect, useState, useCallback } from "react";
+
+const testimonials = [
+  {
+    img: testimonial1,
+    name: "David M.",
+    role: "CEO | SaaS Company, CA",
+    quote:
+      "Outsourcing our sales was a game-changer. We increased qualified leads by 25% while significantly reducing costs. The performance matches U.S.-based teams.",
+  },
+  {
+    img: testimonial2,
+    name: "Rebecca W.",
+    role: "VP of Sales | E-Commerce Brand, NY",
+    quote:
+      "Sales Offshore helped us scale rapidly without overspending. Their team integrated seamlessly and delivered exceptional results.",
+  },
+  {
+    img: testimonial3,
+    name: "Jason L.",
+    role: "Founder & COO | Digital Agency, FL",
+    quote:
+      "We've improved conversions, reduced costs, and gained a reliable sales engine. The impact on revenue growth has been substantial.",
+  },
+];
 
 const stats = [
   { value: "35+", label: "CLIENTS SERVED" },
@@ -12,12 +40,85 @@ const stats = [
 
 export default function TestimonialsSection() {
   const { ref, isVisible } = useScrollAnimation();
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
 
   return (
     <section id="testimonials" className="relative overflow-hidden">
+      {/* Testimonials Carousel */}
+      <div className="bg-background py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-4">
+              TESTIMONIALS
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+              What Our Clients Say
+            </h2>
+          </div>
+
+          {/* Carousel */}
+          <div className="relative max-w-3xl mx-auto">
+            <div className="overflow-hidden">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -60 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="bg-card rounded-2xl border border-border/40 p-10 sm:p-12 shadow-sm text-center"
+              >
+                <div className="flex justify-center gap-1 mb-6">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={18} weight="fill" className="text-secondary" />
+                  ))}
+                </div>
+                <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 font-light italic">
+                  "{testimonials[current].quote}"
+                </p>
+                <div className="flex items-center justify-center gap-4">
+                  <img
+                    src={testimonials[current].img}
+                    alt={testimonials[current].name}
+                    className="w-14 h-14 rounded-full object-cover ring-2 ring-border"
+                  />
+                  <div className="text-left">
+                    <p className="text-sm font-bold text-foreground">{testimonials[current].name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonials[current].role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2.5 mt-8">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    i === current
+                      ? "bg-secondary scale-110"
+                      : "bg-border hover:bg-muted-foreground/40"
+                  }`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Quote section with background image */}
       <div className="relative min-h-[400px] flex items-center justify-center py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
-        {/* Background image */}
         <div className="absolute inset-0">
           <img src={heroImg} alt="Sales office" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "hsl(203 90% 17% / 0.8)" }} />
@@ -25,7 +126,6 @@ export default function TestimonialsSection() {
 
         <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 max-w-5xl mx-auto">
-            {/* Quote icon */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -35,7 +135,6 @@ export default function TestimonialsSection() {
               <Quotes size={100} weight="fill" className="text-white/80 flex-shrink-0" />
             </motion.div>
 
-            {/* Quote text */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -74,7 +173,6 @@ export default function TestimonialsSection() {
             </div>
           </div>
         </motion.div>
-        {/* Spacer for the overlapping card */}
         <div className="h-12" />
       </div>
     </section>
