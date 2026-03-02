@@ -5,32 +5,38 @@ const steps = [
   {
     num: "01",
     title: "Share Your Job Requirements",
-    desc: "Tell us what you need, from sales roles to skill levels. We'll tailor the search to match your exact goals and business needs.",
+    desc: "Tell us what you need, from sales roles to skill levels. We'll tailor the search to match your exact goals.",
+    image: "/images/grid-3.jpg",
   },
   {
     num: "02",
-    title: "We Source and Recruit Top Talent",
-    desc: "Our recruitment team finds and vets highly skilled sales professionals who align with your company's standards and culture.",
+    title: "We Source & Recruit Top Talent",
+    desc: "Our team finds and vets highly skilled sales professionals who align with your company's standards.",
+    image: null,
   },
   {
     num: "03",
     title: "Onboard Your Dedicated Sales Staff",
-    desc: "We handle all onboarding essentials, ensuring your new team is fully equipped and ready to perform from day one.",
+    desc: "We handle all onboarding essentials, ensuring your new team is fully equipped from day one.",
+    image: "/images/grid-5.jpg",
   },
   {
     num: "04",
     title: "We Manage Operations",
-    desc: "We oversee day-to-day operations, track performance, and ensure smooth collaboration between your local and remote teams.",
+    desc: "We oversee day-to-day operations, track performance, and ensure smooth collaboration.",
+    image: null,
   },
   {
     num: "05",
     title: "Scale & Support Your Team",
-    desc: "Easily grow your team or adjust support levels as your business evolves. We make scaling simple and stress-free.",
+    desc: "Easily grow your team or adjust support levels as your business evolves.",
+    image: null,
   },
   {
     num: "06",
     title: "START",
-    desc: "Launch your dedicated outsourced sales team and see measurable results that drive your business growth faster than ever.",
+    desc: "Launch your outsourced sales team and see measurable results that drive growth.",
+    image: "/images/grid-6.jpg",
   },
 ];
 
@@ -56,15 +62,24 @@ export default function HowWeWork() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="rounded-2xl border border-primary-foreground/15 p-6 sm:p-8 lg:p-10 group hover:border-secondary/50 transition-all duration-400 cursor-default relative overflow-hidden"
+              className="rounded-2xl border border-primary-foreground/15 group hover:border-secondary/50 transition-all duration-400 cursor-default relative overflow-hidden"
               style={{ background: "hsl(203 80% 22% / 0.5)" }}
             >
+              {/* Optional image at top */}
+              {s.image && (
+                <div className="h-32 sm:h-40 overflow-hidden">
+                  <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(203_80%_22%/0.9)]" style={{ top: '40%' }} />
+                </div>
+              )}
+              
               {/* Hover glow effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "radial-gradient(circle at 50% 0%, hsl(163 98% 29% / 0.08), transparent 60%)" }} />
-              <div className="relative">
-                <p className="text-5xl sm:text-6xl lg:text-7xl font-extrabold stat-number mb-4 sm:mb-6 tracking-tight opacity-80 group-hover:opacity-100 transition-opacity">{s.num}</p>
-                <h3 className="text-base sm:text-lg font-bold text-primary-foreground mb-2 sm:mb-3 tracking-tight">{s.title}</h3>
-                <p className="text-sm sm:text-[15px] text-primary-foreground/50 leading-relaxed font-light">{s.desc}</p>
+              
+              <div className="relative p-6 sm:p-8">
+                <p className="text-4xl sm:text-5xl lg:text-6xl font-extrabold stat-number mb-3 sm:mb-4 tracking-tight opacity-80 group-hover:opacity-100 transition-opacity">{s.num}</p>
+                <h3 className="text-base sm:text-lg font-bold text-primary-foreground mb-2 tracking-tight">{s.title}</h3>
+                <p className="text-sm text-primary-foreground/50 leading-relaxed font-light">{s.desc}</p>
               </div>
             </motion.div>
           ))}

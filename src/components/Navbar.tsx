@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-nav.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,7 +20,7 @@ export default function Navbar() {
     >
       <div className="container-max flex items-center h-16 sm:h-20 px-5 sm:px-6 lg:px-8">
         <a href="#" className="flex items-center gap-3 group">
-          <img src={logo} alt="Sales Offshore" className="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
+          <img src={logo} alt="Sales Offshore" className="h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
         </a>
       </div>
     </nav>

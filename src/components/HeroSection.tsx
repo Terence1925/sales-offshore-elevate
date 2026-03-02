@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 hero-gradient-overlay" />
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.07]" style={{ background: "radial-gradient(circle, hsl(163 98% 29%) 0%, transparent 70%)" }} />
 
-      <div className="relative container-max px-5 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:py-0">
+      <div className="relative container-max px-5 sm:px-6 lg:px-8 pt-28 pb-16 sm:pt-32 sm:pb-20 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
           {/* Left - Text */}
           <motion.div
