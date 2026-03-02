@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
 
           {/* Right - Content */}
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-12">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-14">
               Why Choose Us?
             </h2>
 
@@ -78,8 +78,8 @@ export default function WhyChooseUs() {
                   <div className="w-14 h-14 rounded-full border-2 border-white/30 flex items-center justify-center mb-4 transition-all duration-400 group-hover:border-white/60 group-hover:scale-105">
                     <r.icon size={28} className="text-white" weight="light" />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2 tracking-tight">{r.title}</h3>
-                  <p className="text-sm text-white/70 leading-relaxed font-light">{r.desc}</p>
+                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{r.title}</h3>
+                  <p className="text-[15px] text-white/70 leading-relaxed font-light">{r.desc}</p>
                 </motion.div>
               ))}
             </div>

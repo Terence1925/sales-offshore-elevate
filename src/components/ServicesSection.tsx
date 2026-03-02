@@ -19,7 +19,7 @@ export default function ServicesSection() {
     <section id="services" className="section-padding-lg bg-background relative">
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight">
             What We Offer
           </h2>
         </div>
@@ -33,10 +33,10 @@ export default function ServicesSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4 tracking-tight">
+            <h3 className="text-3xl sm:text-4xl font-bold text-primary mb-5 tracking-tight">
               Sales Services
             </h3>
-            <p className="text-muted-foreground leading-relaxed font-light">
+            <p className="text-lg text-muted-foreground leading-relaxed font-light">
               At Sales Offshore, we offer a full spectrum of outsourced sales services to help you maximize revenue and reach your targets:
             </p>
           </motion.div>
@@ -52,7 +52,7 @@ export default function ServicesSection() {
             <Accordion type="single" collapsible>
               {services.map((s, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/50 px-0">
-                  <AccordionTrigger className="text-left text-sm font-semibold text-primary hover:no-underline py-5 tracking-wide">
+                  <AccordionTrigger className="text-left text-base font-semibold text-primary hover:no-underline py-5 tracking-wide">
                     {s.title}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed pb-5 font-light text-sm">

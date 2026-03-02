@@ -37,7 +37,7 @@ export default function HeroSection() {
               </span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.08] tracking-tight text-primary-foreground mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-extrabold leading-[1.05] tracking-tight text-primary-foreground mb-8">
               Home of Top{" "}
               <span className="relative inline-block">
                 <span className="text-gradient">Remote Sales</span>
@@ -46,7 +46,7 @@ export default function HeroSection() {
               <span className="text-gradient">Talent</span>
             </h1>
 
-            <p className="text-lg lg:text-xl text-primary-foreground/60 leading-relaxed mb-10 max-w-lg font-light">
+            <p className="text-xl lg:text-2xl text-primary-foreground/60 leading-relaxed mb-12 max-w-xl font-light">
               Outsource your sales to the Philippines &amp; save up to 70% on costs — without compromising performance.
             </p>
 

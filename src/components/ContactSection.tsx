@@ -24,7 +24,7 @@ export default function ContactSection() {
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="section-label">Contact</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight">
             Get in <span className="text-gradient">Touch</span>
           </h2>
         </div>

@@ -31,12 +31,12 @@ export default function CTASection() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-[3.2rem] font-bold text-primary-foreground mb-5 tracking-tight leading-tight">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary-foreground mb-6 tracking-tight leading-tight">
                 Ready to Scale Your
                 <br />
                 Sales Team?
               </h2>
-              <p className="text-lg text-primary-foreground/50 mb-12 max-w-lg font-light">
+              <p className="text-xl text-primary-foreground/50 mb-12 max-w-lg font-light">
                 Book a free 30-minute strategy call and discover how much you can save with dedicated remote sales talent.
               </p>
               <Button variant="hero" size="xl" className="group animate-pulse-glow" asChild>
