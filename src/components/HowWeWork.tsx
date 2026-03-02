@@ -38,15 +38,15 @@ export default function HowWeWork() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="how-we-work" className="relative overflow-hidden py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 hero-gradient noise-overlay">
+    <section id="how-we-work" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 hero-gradient noise-overlay">
       <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center mb-16 sm:mb-20">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary-foreground tracking-tight">
+        <div className="text-center mb-10 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground tracking-tight">
             Hire Outsourced Sales Staff
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {steps.map((s, i) => (
             <motion.div
               key={i}
@@ -54,12 +54,12 @@ export default function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="rounded-2xl border border-primary-foreground/15 p-8 sm:p-10 group hover:border-secondary/40 transition-all duration-400"
+              className="rounded-2xl border border-primary-foreground/15 p-6 sm:p-8 lg:p-10 group hover:border-secondary/40 transition-all duration-400"
               style={{ background: "hsl(203 80% 22% / 0.5)" }}
             >
-              <p className="text-6xl sm:text-7xl font-extrabold text-primary-foreground/90 mb-6 tracking-tight">{s.num}</p>
-              <h3 className="text-lg font-bold text-primary-foreground mb-3 tracking-tight">{s.title}</h3>
-              <p className="text-[15px] text-primary-foreground/50 leading-relaxed font-light">{s.desc}</p>
+              <p className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-primary-foreground/90 mb-4 sm:mb-6 tracking-tight">{s.num}</p>
+              <h3 className="text-base sm:text-lg font-bold text-primary-foreground mb-2 sm:mb-3 tracking-tight">{s.title}</h3>
+              <p className="text-sm sm:text-[15px] text-primary-foreground/50 leading-relaxed font-light">{s.desc}</p>
             </motion.div>
           ))}
         </div>

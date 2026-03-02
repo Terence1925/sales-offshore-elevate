@@ -18,9 +18,9 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-max flex items-center h-20 px-4 sm:px-6 lg:px-8">
+      <div className="container-max flex items-center h-16 sm:h-20 px-5 sm:px-6 lg:px-8">
         <a href="#" className="flex items-center gap-3 group">
-          <img src={logo} alt="Sales Offshore" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
+          <img src={logo} alt="Sales Offshore" className="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
         </a>
       </div>
     </nav>

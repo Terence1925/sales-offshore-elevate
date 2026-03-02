@@ -14,17 +14,17 @@ export default function FAQSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="faq" className="section-padding-lg bg-background">
+    <section id="faq" className="py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-background">
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="section-label">FAQ</span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {faqs.map((f, i) => (
               <motion.div
                 key={i}
@@ -33,11 +33,11 @@ export default function FAQSection() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
               >
-                <AccordionItem value={`item-${i}`} className="card-luxury px-7 py-1 border-none">
-                  <AccordionTrigger className="text-left text-base sm:text-lg font-semibold text-primary hover:no-underline py-5 tracking-tight">
+                <AccordionItem value={`item-${i}`} className="card-luxury px-5 sm:px-7 py-1 border-none">
+                  <AccordionTrigger className="text-left text-sm sm:text-base lg:text-lg font-semibold text-primary hover:no-underline py-4 sm:py-5 tracking-tight">
                     {f.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5 font-light">
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-4 sm:pb-5 font-light text-sm">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
