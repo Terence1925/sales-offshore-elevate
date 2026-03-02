@@ -38,33 +38,55 @@ export default function HowWeWork() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="how-we-work" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 hero-gradient noise-overlay">
+    <section id="how-we-work" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-background">
       <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center mb-10 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground tracking-tight">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <span className="section-label">Process</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
             Hire Outsourced Sales Staff
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base sm:text-lg font-light">
+            Our streamlined 6-step process gets your dedicated sales team up and running fast.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
-          {steps.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-              whileHover={{ y: -6 }}
-              className="rounded-2xl border border-primary-foreground/15 transition-all duration-400 cursor-default relative overflow-hidden group"
-              style={{ background: "hsl(203 80% 22% / 0.6)" }}
-            >
-              <div className="p-6 sm:p-8">
-                <p className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-primary-foreground/20 mb-4 sm:mb-5 tracking-tighter leading-none">{s.num}</p>
-                <h3 className="text-base sm:text-lg font-bold text-primary-foreground mb-2 tracking-tight">{s.title}</h3>
-                <p className="text-sm text-primary-foreground/50 leading-relaxed font-light">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Timeline layout */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Vertical line */}
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border hidden md:hidden" />
+
+          <div className="space-y-6 sm:space-y-8">
+            {steps.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="relative flex gap-5 sm:gap-8 items-start group"
+              >
+                {/* Step number circle */}
+                <div className="relative z-10 flex-shrink-0">
+                  <motion.div
+                    whileHover={{ scale: 1.15 }}
+                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-extrabold text-sm sm:text-base transition-all duration-300 border-2 border-secondary/30 bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-secondary-foreground group-hover:border-secondary"
+                  >
+                    {s.num}
+                  </motion.div>
+                </div>
+
+                {/* Content card */}
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  className="flex-1 rounded-2xl border border-border/40 bg-card p-5 sm:p-7 shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:border-secondary/20"
+                >
+                  <h3 className="text-base sm:text-lg font-bold text-primary mb-2 tracking-tight">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed font-light">{s.desc}</p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

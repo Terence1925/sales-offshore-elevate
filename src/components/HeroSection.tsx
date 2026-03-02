@@ -23,8 +23,17 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] tracking-tight text-primary-foreground mb-5 sm:mb-8">
+            {/* #1 Badge - moved here, below nav */}
+            <div className="mb-6 sm:mb-8">
+              <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-secondary/30 bg-secondary/5">
+                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                <span className="text-[10px] sm:text-xs font-semibold text-secondary tracking-wide">
+                  #1 Outsourced Sales Agency in the Philippines
+                </span>
+              </div>
+            </div>
 
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] tracking-tight text-primary-foreground mb-5 sm:mb-8">
               Home of Top{" "}
               <span className="relative inline-block">
                 <span className="text-gradient">Remote Sales</span>
