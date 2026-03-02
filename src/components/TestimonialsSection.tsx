@@ -6,6 +6,7 @@ import testimonial1 from "@/assets/testimonial-1.png";
 import testimonial2 from "@/assets/testimonial-2.png";
 import testimonial3 from "@/assets/testimonial-3.png";
 import { useEffect, useState, useCallback } from "react";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const testimonials = [
   {
@@ -31,12 +32,36 @@ const testimonials = [
   },
 ];
 
-const stats = [
-  { value: "35+", label: "CLIENTS SERVED" },
-  { value: "250+", label: "SALES PROFESSIONALS PLACED" },
-  { value: "2K+", label: "DEALS CLOSED" },
-  { value: "70%", label: "AVERAGE COST SAVINGS" },
+const statsData = [
+  { end: 35, suffix: "+", label: "CLIENTS SERVED" },
+  { end: 250, suffix: "+", label: "SALES PROFESSIONALS PLACED" },
+  { end: 2, suffix: "K+", label: "DEALS CLOSED" },
+  { end: 70, suffix: "%", label: "AVERAGE COST SAVINGS" },
 ];
+
+function AnimatedStat({ end, suffix, label, index }: { end: number; suffix: string; label: string; index: number }) {
+  const { ref, display } = useCountUp({ end, suffix, duration: 2200 });
+
+  return (
+    <motion.div
+      ref={ref}
+      className="text-center relative group cursor-pointer"
+      whileHover={{ scale: 1.08, y: -4 }}
+      whileTap={{ scale: 0.95, rotate: [-1, 1, 0] }}
+      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+    >
+      <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-1 sm:mb-2 tracking-tight transition-colors duration-300 group-hover:text-secondary">
+        {display}
+      </p>
+      <p className="text-[9px] sm:text-[10px] lg:text-xs text-muted-foreground font-semibold tracking-[0.12em] uppercase">
+        {label}
+      </p>
+      {index < statsData.length - 1 && (
+        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-border" />
+      )}
+    </motion.div>
+  );
+}
 
 export default function TestimonialsSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -104,10 +129,10 @@ export default function TestimonialsSection() {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
                     i === current
-                      ? "bg-secondary scale-110"
-                      : "bg-border hover:bg-muted-foreground/40"
+                      ? "bg-secondary w-8"
+                      : "bg-border hover:bg-muted-foreground/40 w-2.5"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -121,7 +146,7 @@ export default function TestimonialsSection() {
       <div className="relative min-h-[300px] sm:min-h-[400px] flex items-center justify-center py-16 sm:py-24 px-5 sm:px-6 lg:px-8">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Sales office" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "hsl(203 90% 17% / 0.8)" }} />
+          <div className="absolute inset-0" style={{ background: "hsl(203 90% 17% / 0.85)" }} />
         </div>
 
         <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
@@ -132,8 +157,8 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Quotes size={60} weight="fill" className="text-white/80 flex-shrink-0 sm:hidden" />
-              <Quotes size={100} weight="fill" className="text-white/80 flex-shrink-0 hidden sm:block" />
+              <Quotes size={60} weight="fill" className="text-secondary/80 flex-shrink-0 sm:hidden" />
+              <Quotes size={100} weight="fill" className="text-secondary/80 flex-shrink-0 hidden sm:block" />
             </motion.div>
 
             <motion.div
@@ -151,29 +176,23 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Stats bar */}
+      {/* Stats bar with counting animation */}
       <div className="relative bg-background">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="container-max px-5 sm:px-6 lg:px-8 -mt-8 sm:-mt-12"
-        >
-          <div className="bg-card rounded-xl sm:rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border border-border/30 py-8 sm:py-10 lg:py-12 px-5 sm:px-8">
+        <div className="container-max px-5 sm:px-6 lg:px-8 -mt-8 sm:-mt-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-card rounded-xl sm:rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border border-border/30 py-8 sm:py-10 lg:py-12 px-5 sm:px-8"
+          >
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {stats.map((s, i) => (
-                <div key={i} className="text-center relative">
-                  <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-1 sm:mb-2 tracking-tight">{s.value}</p>
-                  <p className="text-[9px] sm:text-[10px] lg:text-xs text-muted-foreground font-semibold tracking-[0.12em] uppercase">{s.label}</p>
-                  {i < stats.length - 1 && (
-                    <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-border" />
-                  )}
-                </div>
+              {statsData.map((s, i) => (
+                <AnimatedStat key={i} end={s.end} suffix={s.suffix} label={s.label} index={i} />
               ))}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
         <div className="h-8 sm:h-12" />
       </div>
     </section>
