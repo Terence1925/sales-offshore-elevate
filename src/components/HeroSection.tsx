@@ -23,19 +23,8 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
           >
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur-sm mb-6 sm:mb-8"
-            >
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              <span className="text-[10px] sm:text-xs font-medium text-primary-foreground/80 tracking-wide">
-                #1 Outsourced Sales Agency in the Philippines
-              </span>
-            </motion.div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] tracking-tight text-primary-foreground mb-5 sm:mb-8">
+
               Home of Top{" "}
               <span className="relative inline-block">
                 <span className="text-gradient">Remote Sales</span>
