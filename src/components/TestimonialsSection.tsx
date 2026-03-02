@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-4">
               TESTIMONIALS
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
               What Our Clients Say
             </h2>
           </div>
@@ -81,7 +81,7 @@ export default function TestimonialsSection() {
                     <Star key={j} size={18} weight="fill" className="text-secondary" />
                   ))}
                 </div>
-                <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8 font-light italic">
+                <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed mb-8 font-light italic">
                   "{testimonials[current].quote}"
                 </p>
                 <div className="flex items-center justify-center gap-4">
@@ -91,8 +91,8 @@ export default function TestimonialsSection() {
                     className="w-14 h-14 rounded-full object-cover ring-2 ring-border"
                   />
                   <div className="text-left">
-                    <p className="text-sm font-bold text-foreground">{testimonials[current].name}</p>
-                    <p className="text-xs text-muted-foreground">{testimonials[current].role}</p>
+                    <p className="text-base font-bold text-foreground">{testimonials[current].name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonials[current].role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -141,7 +141,7 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <p className="text-xl sm:text-2xl lg:text-3xl text-white leading-relaxed font-light italic mb-6">
+              <p className="text-2xl sm:text-3xl lg:text-4xl text-white leading-relaxed font-light italic mb-6">
                 "Outsourcing sales to the Philippines is more than a trend—it's the future of business growth, driven by top-tier talent and cost efficiency."
               </p>
               <p className="text-sm text-white/60 font-medium">— Sales Offshore Team</p>

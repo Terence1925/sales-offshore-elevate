@@ -18,7 +18,7 @@ export default function FAQSection() {
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="section-label">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
         </div>
@@ -34,7 +34,7 @@ export default function FAQSection() {
                 transition={{ delay: i * 0.08, duration: 0.4 }}
               >
                 <AccordionItem value={`item-${i}`} className="card-luxury px-7 py-1 border-none">
-                  <AccordionTrigger className="text-left text-[15px] font-semibold text-primary hover:no-underline py-5 tracking-tight">
+                  <AccordionTrigger className="text-left text-base sm:text-lg font-semibold text-primary hover:no-underline py-5 tracking-tight">
                     {f.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed pb-5 font-light">
