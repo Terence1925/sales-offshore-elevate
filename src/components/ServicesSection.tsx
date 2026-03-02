@@ -1,15 +1,15 @@
-import { Target, FunnelSimple, Handshake, ChartLineUp, GraduationCap, MagnifyingGlass, UsersThree } from "@phosphor-icons/react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const services = [
-  { icon: Target, title: "Lead Generation", desc: "Targeted outbound campaigns that connect you with high-intent prospects using advanced targeting and personalized outreach." },
-  { icon: FunnelSimple, title: "Lead Qualification", desc: "We nurture and qualify leads so only high-converting prospects reach your pipeline." },
-  { icon: Handshake, title: "Sales Conversion & Closing", desc: "Experienced sales closers turn qualified leads into long-term, revenue-generating clients." },
-  { icon: ChartLineUp, title: "Sales Team Management", desc: "Dedicated Sales Managers oversee KPIs, processes, and performance for consistent results." },
-  { icon: GraduationCap, title: "Sales Training", desc: "Customized training programs to sharpen prospecting, objection handling, and closing skills." },
-  { icon: MagnifyingGlass, title: "Sales QA & Optimization", desc: "Call monitoring, CRM audits, and performance reviews to improve efficiency and consistency." },
-  { icon: UsersThree, title: "Customer Success", desc: "Reduce churn and increase upsells through structured post-sale engagement." },
+  { title: "LEAD GENERATION", desc: "Targeted outbound campaigns that connect you with high-intent prospects using advanced targeting and personalized outreach strategies." },
+  { title: "LEAD QUALIFICATION", desc: "We nurture and qualify leads so only high-converting prospects reach your pipeline, saving your team time and effort." },
+  { title: "SALES CONVERSION & DEAL CLOSING", desc: "Experienced sales closers turn qualified leads into long-term, revenue-generating clients." },
+  { title: "SALES TEAM MANAGEMENT & OPTIMIZATION", desc: "Dedicated Sales Managers oversee KPIs, processes, and performance for consistent results." },
+  { title: "SALES TRAINING & SKILL DEVELOPMENT", desc: "Customized training programs to sharpen prospecting, objection handling, and closing skills." },
+  { title: "SALES QA & PROCESS OPTIMIZATION", desc: "Call monitoring, CRM audits, and performance reviews to improve efficiency and consistency." },
+  { title: "CUSTOMER SUCCESS & RETENTION MANAGEMENT", desc: "Reduce churn and increase upsells through structured post-sale engagement." },
 ];
 
 export default function ServicesSection() {
@@ -18,35 +18,50 @@ export default function ServicesSection() {
   return (
     <section id="services" className="section-padding-lg bg-background relative">
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="section-label">Our Services</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-5 tracking-tight">
-            Outsourced Sales Solutions
-            <br className="hidden sm:block" />
-            <span className="text-gradient"> Built for Revenue Growth</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight">
+            What We Offer
           </h2>
-          <p className="text-muted-foreground leading-relaxed text-lg font-light">
-            A full spectrum of outsourced sales services designed to help you scale efficiently, increase revenue, and maximize ROI.
-          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-          {services.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-              className={`card-luxury p-7 sm:p-8 group ${i === 6 ? "sm:col-span-2 lg:col-span-1" : ""}`}
-            >
-              <div className="w-12 h-12 rounded-xl bg-secondary/8 flex items-center justify-center mb-6 transition-all duration-400 group-hover:bg-secondary/15 group-hover:scale-110">
-                <s.icon size={24} className="text-secondary" weight="duotone" />
-              </div>
-              <h3 className="text-base font-semibold text-primary mb-2.5 tracking-tight">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-light">{s.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+          {/* Left - Description */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2"
+          >
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4 tracking-tight">
+              Sales Services
+            </h3>
+            <p className="text-muted-foreground leading-relaxed font-light">
+              At Sales Offshore, we offer a full spectrum of outsourced sales services to help you maximize revenue and reach your targets:
+            </p>
+          </motion.div>
+
+          {/* Right - Accordion */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="lg:col-span-3"
+          >
+            <Accordion type="single" collapsible>
+              {services.map((s, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/50 px-0">
+                  <AccordionTrigger className="text-left text-sm font-semibold text-primary hover:no-underline py-5 tracking-wide">
+                    {s.title}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5 font-light text-sm">
+                    {s.desc}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
         </div>
       </div>
     </section>
