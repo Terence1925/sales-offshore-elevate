@@ -19,8 +19,16 @@ export default function Navbar() {
       }`}
     >
       <div className="container-max flex items-center h-16 sm:h-20 px-5 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-3 group">
-          <img src={logo} alt="Sales Offshore" className="h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+        <a href="#" className="flex items-center gap-2.5 group">
+          <img src={logo} alt="Sales Offshore" className="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
+          <div className="flex flex-col leading-none">
+            <span className={`text-sm sm:text-base font-extrabold tracking-tight transition-colors duration-500 ${scrolled ? "text-primary" : "text-primary-foreground"}`}>
+              SALES
+            </span>
+            <span className={`text-sm sm:text-base font-extrabold tracking-tight transition-colors duration-500 ${scrolled ? "text-secondary" : "text-secondary"}`}>
+              OFFSHORE
+            </span>
+          </div>
         </a>
       </div>
     </nav>

@@ -4,9 +4,9 @@ import SocialProofLogos from "@/components/SocialProofLogos";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ServicesSection from "@/components/ServicesSection";
 import HowWeWork from "@/components/HowWeWork";
-
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
+import PhotoGridSection from "@/components/PhotoGridSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -20,9 +20,9 @@ const Index = () => {
       <WhyChooseUs />
       <ServicesSection />
       <HowWeWork />
-      
       <TestimonialsSection />
       <FAQSection />
+      <PhotoGridSection />
       <CTASection />
       <ContactSection />
       <Footer />

@@ -1,36 +1,38 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
+import { ClipboardText, Users, Handshake, GearSix, TrendUp, RocketLaunch } from "@phosphor-icons/react";
 
 const steps = [
   {
-    num: "01",
+    icon: ClipboardText,
     title: "Share Your Job Requirements",
-    desc: "Tell us what you need, from sales roles to skill levels. We'll tailor the search to match your exact goals and business needs.",
+    desc: "Tell us what you need, from sales roles to skill levels. We'll tailor the search to match your exact goals.",
   },
   {
-    num: "02",
+    icon: Users,
     title: "We Source & Recruit Top Talent",
-    desc: "Our recruitment team finds and vets highly skilled sales professionals who align with your company's standards and culture.",
+    desc: "Our recruitment team finds and vets highly skilled sales professionals who align with your standards.",
   },
   {
-    num: "03",
+    icon: Handshake,
     title: "Onboard Your Dedicated Sales Staff",
-    desc: "We handle all onboarding essentials, ensuring your new team is fully equipped and ready to perform from day one.",
+    desc: "We handle all onboarding essentials, ensuring your new team is fully equipped and ready from day one.",
   },
   {
-    num: "04",
+    icon: GearSix,
     title: "We Manage Operations",
-    desc: "We oversee day-to-day operations, track performance, and ensure smooth collaboration between your local and remote teams.",
+    desc: "We oversee day-to-day operations, track performance, and ensure smooth collaboration.",
   },
   {
-    num: "05",
+    icon: TrendUp,
     title: "Scale & Support Your Team",
-    desc: "Easily grow your team or adjust support levels as your business evolves. We make scaling simple and stress-free.",
+    desc: "Easily grow your team or adjust support levels as your business evolves.",
   },
   {
-    num: "06",
+    icon: RocketLaunch,
     title: "START",
-    desc: "Launch your dedicated outsourced sales team and see measurable results that drive your business growth faster than ever.",
+    desc: "Launch your dedicated outsourced sales team and see measurable results that drive growth.",
+    highlighted: true,
   },
 ];
 
@@ -38,52 +40,60 @@ export default function HowWeWork() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="how-we-work" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-background">
+    <section id="how-we-work" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-muted">
       <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <span className="section-label">Process</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
-            Hire Outsourced Sales Staff
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base sm:text-lg font-light">
-            Our streamlined 6-step process gets your dedicated sales team up and running fast.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          {/* Left - Sticky heading */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:sticky lg:top-32"
+          >
+            <span className="section-label">Process</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight mb-4 sm:mb-6">
+              Hire Outsourced Sales Staff
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg font-light leading-relaxed max-w-md">
+              Our streamlined 6-step process gets your dedicated sales team up and running fast.
+            </p>
+          </motion.div>
 
-        {/* Timeline layout */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line */}
-          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border hidden md:hidden" />
-
-          <div className="space-y-6 sm:space-y-8">
+          {/* Right - Stacked cards */}
+          <div className="space-y-4 sm:space-y-5">
             {steps.map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="relative flex gap-5 sm:gap-8 items-start group"
+                className={`rounded-2xl p-5 sm:p-7 transition-all duration-300 ${
+                  s.highlighted
+                    ? "bg-secondary text-secondary-foreground shadow-lg"
+                    : "bg-card border border-border/40 hover:border-secondary/20 hover:shadow-md"
+                }`}
               >
-                {/* Step number circle */}
-                <div className="relative z-10 flex-shrink-0">
-                  <motion.div
-                    whileHover={{ scale: 1.15 }}
-                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-extrabold text-sm sm:text-base transition-all duration-300 border-2 border-secondary/30 bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-secondary-foreground group-hover:border-secondary"
-                  >
-                    {s.num}
-                  </motion.div>
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                    s.highlighted ? "bg-secondary-foreground/15" : "bg-muted"
+                  }`}>
+                    <s.icon size={24} weight="duotone" className={s.highlighted ? "text-secondary-foreground" : "text-secondary"} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-base sm:text-lg font-bold mb-1.5 tracking-tight ${
+                      s.highlighted ? "text-secondary-foreground" : "text-primary"
+                    }`}>
+                      {s.title}
+                    </h3>
+                    <p className={`text-sm leading-relaxed font-light ${
+                      s.highlighted ? "text-secondary-foreground/80" : "text-muted-foreground"
+                    }`}>
+                      {s.desc}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Content card */}
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  className="flex-1 rounded-2xl border border-border/40 bg-card p-5 sm:p-7 shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:border-secondary/20"
-                >
-                  <h3 className="text-base sm:text-lg font-bold text-primary mb-2 tracking-tight">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-light">{s.desc}</p>
-                </motion.div>
               </motion.div>
             ))}
           </div>
