@@ -1,10 +1,62 @@
 const logos = [
-  { name: "Verizon", svg: "M15.5 3l-7 14L5 10.5" },
-  { name: "HubSpot", svg: null },
-  { name: "Shopify", svg: null },
-  { name: "Salesforce", svg: null },
-  { name: "Slack", svg: null },
-  { name: "Zoom", svg: null },
+  {
+    name: "Verizon",
+    svg: (
+      <svg viewBox="0 0 120 30" className="h-6 sm:h-7 w-auto" fill="currentColor">
+        <path d="M18.2 0L9.1 18.2 4.6 9.1H0l9.1 18.2L27.3 0h-9.1z" />
+        <text x="32" y="22" fontSize="18" fontWeight="700" fontFamily="Arial, sans-serif">verizon</text>
+      </svg>
+    ),
+  },
+  {
+    name: "HubSpot",
+    svg: (
+      <svg viewBox="0 0 100 30" className="h-6 sm:h-7 w-auto" fill="currentColor">
+        <circle cx="12" cy="15" r="8" fillOpacity="0.8" />
+        <text x="24" y="22" fontSize="18" fontWeight="700" fontFamily="Arial, sans-serif">HubSpot</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Shopify",
+    svg: (
+      <svg viewBox="0 0 100 30" className="h-6 sm:h-7 w-auto" fill="currentColor">
+        <path d="M12 2l3 8h8l-6.5 5 2.5 8L12 18l-7 5 2.5-8L1 10h8z" />
+        <text x="24" y="22" fontSize="18" fontWeight="700" fontFamily="Arial, sans-serif">Shopify</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Salesforce",
+    svg: (
+      <svg viewBox="0 0 120 30" className="h-6 sm:h-7 w-auto" fill="currentColor">
+        <path d="M6 18c0-5 4-9 9-9 3 0 5.5 1.5 7 3.5 1.2-1 2.8-1.5 4.5-1.5 4 0 7 3 7 7s-3 7-7 7H10c-4 0-7-3-7-7h3z" fillOpacity="0.8" />
+        <text x="38" y="22" fontSize="14" fontWeight="700" fontFamily="Arial, sans-serif">salesforce</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Slack",
+    svg: (
+      <svg viewBox="0 0 80 30" className="h-6 sm:h-7 w-auto" fill="currentColor">
+        <rect x="2" y="10" width="6" height="6" rx="2" fillOpacity="0.9" />
+        <rect x="10" y="10" width="6" height="6" rx="2" fillOpacity="0.7" />
+        <rect x="2" y="18" width="6" height="6" rx="2" fillOpacity="0.7" />
+        <rect x="10" y="18" width="6" height="6" rx="2" fillOpacity="0.9" />
+        <text x="22" y="22" fontSize="18" fontWeight="700" fontFamily="Arial, sans-serif">Slack</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Zoom",
+    svg: (
+      <svg viewBox="0 0 80 30" className="h-6 sm:h-7 w-auto" fill="currentColor">
+        <rect x="2" y="8" width="16" height="14" rx="3" fillOpacity="0.8" />
+        <path d="M20 11l6-3v14l-6-3z" fillOpacity="0.8" />
+        <text x="30" y="22" fontSize="18" fontWeight="700" fontFamily="Arial, sans-serif">Zoom</text>
+      </svg>
+    ),
+  },
 ];
 
 export default function SocialProofLogos() {
@@ -25,27 +77,15 @@ export default function SocialProofLogos() {
         <div className="flex overflow-hidden">
           <div className="flex items-center gap-12 sm:gap-16 lg:gap-20 animate-marquee whitespace-nowrap">
             {[...logos, ...logos].map((l, i) => (
-              <div key={i} className="flex items-center gap-2 opacity-30 hover:opacity-60 transition-opacity">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M8 12l3 3 5-5" />
-                </svg>
-                <span className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-primary select-none">
-                  {l.name}
-                </span>
+              <div key={i} className="flex items-center opacity-25 hover:opacity-50 transition-opacity text-primary">
+                {l.svg}
               </div>
             ))}
           </div>
           <div className="flex items-center gap-12 sm:gap-16 lg:gap-20 animate-marquee whitespace-nowrap" aria-hidden>
             {[...logos, ...logos].map((l, i) => (
-              <div key={i} className="flex items-center gap-2 opacity-30 hover:opacity-60 transition-opacity">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M8 12l3 3 5-5" />
-                </svg>
-                <span className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-primary select-none">
-                  {l.name}
-                </span>
+              <div key={i} className="flex items-center opacity-25 hover:opacity-50 transition-opacity text-primary">
+                {l.svg}
               </div>
             ))}
           </div>
