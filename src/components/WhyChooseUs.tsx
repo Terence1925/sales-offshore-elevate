@@ -39,7 +39,10 @@ export default function WhyChooseUs() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="why-us" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-background">
+    <section
+      id="why-us"
+      className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-background"
+    >
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         {/* Header with description */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 sm:mb-16 lg:mb-20">
@@ -49,9 +52,9 @@ export default function WhyChooseUs() {
               Why Choose Us?
             </h2>
           </div>
-          <p className="text-muted-foreground max-w-md text-sm sm:text-base font-light leading-relaxed lg:text-right">
+          {/* <p className="text-muted-foreground max-w-md text-sm sm:text-base font-light leading-relaxed lg:text-right">
             We offer comprehensive, reliable, and professional outsourced sales solutions — ensuring quality, efficiency, and long-lasting performance.
-          </p>
+          </p> */}
         </div>
 
         {/* Card grid - electrician style */}
