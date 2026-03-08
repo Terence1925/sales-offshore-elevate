@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
     <section
       id="why-us"
       className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8"
-      style={{ background: "#F3F5F74C" }}
+      style={{ background: "hsl(163 50% 35%)" }}
     >
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
