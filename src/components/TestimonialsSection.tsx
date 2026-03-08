@@ -167,24 +167,24 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <p className="text-lg sm:text-2xl lg:text-3xl text-primary-foreground leading-relaxed font-light italic mb-4 sm:mb-6">
+              <p className="text-lg sm:text-2xl lg:text-3xl text-white leading-relaxed font-light italic mb-4 sm:mb-6">
                 "Outsourcing sales to the Philippines is more than a trend—it's the future of business growth, driven by top-tier talent and cost efficiency."
               </p>
-              <p className="text-xs sm:text-sm text-primary-foreground/60 font-medium">— Sales Offshore Team</p>
+              <p className="text-xs sm:text-sm text-white/60 font-medium">— Sales Offshore Team</p>
             </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Stats bar floating up */}
+      {/* Stats bar with counting animation */}
       <div className="relative bg-background">
-        <div className="container-max px-5 sm:px-6 lg:px-8 -mt-10 sm:-mt-14">
+        <div className="container-max px-5 sm:px-6 lg:px-8 -mt-8 sm:-mt-12">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="bg-card rounded-xl sm:rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-border/30 py-8 sm:py-10 lg:py-12 px-5 sm:px-8"
+            transition={{ duration: 0.6 }}
+            className="bg-card rounded-xl sm:rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border border-border/30 py-8 sm:py-10 lg:py-12 px-5 sm:px-8"
           >
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {statsData.map((s, i) => (

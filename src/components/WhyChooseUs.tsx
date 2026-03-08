@@ -6,32 +6,32 @@ const reasons = [
   {
     icon: Star,
     title: "Proven Experience",
-    desc: "Our founders bring over 15+ years of industry experience, providing you with innovative sales strategies and effective solutions.",
+    desc: "Our founders bring over 15+ years of industry experience, providing you with innovative sales strategies and effective solutions that are tested, refined, and proven to work.",
   },
   {
     icon: CurrencyDollar,
     title: "Cost-Effective",
-    desc: "Save up to 70% on operational costs compared to hiring a U.S.-based team, while maintaining the highest standards.",
+    desc: "High ROI. Save up to 70% on operational costs compared to hiring a U.S.-based team, while maintaining the highest standards of quality and performance.",
   },
   {
     icon: Lightning,
     title: "Quick Turnaround",
-    desc: "Get your remote sales team up and running in days, not weeks, so you can focus on scaling your business.",
+    desc: "Fast setup. Get your remote sales team up and running in days, not weeks, so you can focus on scaling while we handle the heavy lifting fast, flawlessly, and built for results.",
   },
   {
     icon: ArrowsOutSimple,
     title: "Scalable & Flexible",
-    desc: "Our scalable services can be customized to meet your unique business needs, adapting as your company grows.",
+    desc: "From cold calling to lead generation, our scalable services can be customized to meet your unique business needs, adapting as your company grows.",
   },
   {
     icon: Crosshair,
     title: "Sales-Only Expertise",
-    desc: "We specialize exclusively in sales, ensuring a deep focus on driving results and growth for your business.",
+    desc: "We are the only outsourcing company that specializes exclusively in sales, ensuring a deep focus on driving results and growth for your business.",
   },
   {
     icon: Trophy,
     title: "Top Talent",
-    desc: "Access highly skilled, results-driven remote sales professionals selected for exceptional sales performance.",
+    desc: "Access a pool of highly skilled, results-driven remote sales professionals from the Philippines, selected for their ability to deliver exceptional sales performance.",
   },
 ];
 
@@ -39,26 +39,15 @@ export default function WhyChooseUs() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section
-      id="why-us"
-      className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-background"
-    >
+    <section id="why-us" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8" style={{ background: "hsl(163 50% 35%)" }}>
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        {/* Header with description */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 sm:mb-16 lg:mb-20">
-          <div>
-            <span className="section-label">Why Us</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
-              Why Choose Us?
-            </h2>
-          </div>
-          {/* <p className="text-muted-foreground max-w-md text-sm sm:text-base font-light leading-relaxed lg:text-right">
-            We offer comprehensive, reliable, and professional outsourced sales solutions — ensuring quality, efficiency, and long-lasting performance.
-          </p> */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight" style={{ color: "hsl(0 0% 100%)" }}>
+            Why Choose Us?
+          </h2>
         </div>
 
-        {/* Card grid - electrician style */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
           {reasons.map((r, i) => (
             <motion.div
               key={i}
@@ -66,19 +55,15 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 * i, duration: 0.5 }}
-              className="group rounded-2xl border border-border/50 bg-card p-6 sm:p-8 transition-all duration-400 hover:border-secondary/30 hover:shadow-lg hover:-translate-y-1"
+              whileHover={{ y: -6, scale: 1.03 }}
+              className="flex flex-col items-center text-center cursor-default group"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-muted flex items-center justify-center mb-5 sm:mb-6 transition-all duration-300 group-hover:bg-secondary/10">
-                <r.icon size={28} className="text-secondary sm:hidden" weight="light" />
-                <r.icon size={32} className="text-secondary hidden sm:block" weight="light" />
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-5 sm:mb-6 transition-all duration-400 group-hover:scale-110" style={{ border: "2px solid hsl(0 0% 100% / 0.3)", background: "hsl(0 0% 100% / 0.08)" }}>
+                <r.icon size={36} className="sm:hidden" weight="thin" style={{ color: "hsl(0 0% 100%)" }} />
+                <r.icon size={44} className="hidden sm:block" weight="thin" style={{ color: "hsl(0 0% 100%)" }} />
               </div>
-
-              {/* Title */}
-              <h3 className="text-base sm:text-lg font-bold text-primary mb-2.5 tracking-tight">{r.title}</h3>
-
-              {/* Description */}
-              <p className="text-sm text-muted-foreground leading-relaxed font-light">{r.desc}</p>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 tracking-tight" style={{ color: "hsl(0 0% 100%)" }}>{r.title}</h3>
+              <p className="text-sm sm:text-[15px] leading-relaxed font-light max-w-xs" style={{ color: "hsl(0 0% 100% / 0.8)" }}>{r.desc}</p>
             </motion.div>
           ))}
         </div>
