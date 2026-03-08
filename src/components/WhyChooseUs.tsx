@@ -46,7 +46,12 @@ export default function WhyChooseUs() {
     >
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-black">Why Choose Us?</h2>
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-black"
+            style={{ color: "hsl(0 0% 100%)" }}
+          >
+            Why Choose Us?
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
