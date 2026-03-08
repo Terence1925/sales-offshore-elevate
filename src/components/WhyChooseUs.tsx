@@ -39,14 +39,14 @@ export default function WhyChooseUs() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="why-us" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-primary">
+    <section id="why-us" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8" style={{ backgroundColor: "#F3F5F74C" }}>
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         {/* Header row */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-black">
             Why Choose Us?
           </h2>
-          <p className="text-sm sm:text-base text-primary-foreground/70 max-w-md lg:text-right leading-relaxed">
+          <p className="text-sm sm:text-base text-black/70 max-w-md lg:text-right leading-relaxed">
             We offer comprehensive, reliable, and professional sales solutions for every business — ensuring efficiency, scalability, and long-lasting performance.
           </p>
         </div>
@@ -60,31 +60,31 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.06 * i, duration: 0.5 }}
-              className="group rounded-2xl p-6 sm:p-8 flex flex-col cursor-default transition-all duration-300 hover:-translate-y-1"
+              className="group rounded-2xl p-6 sm:p-8 flex flex-col cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
               style={{
-                background: "hsl(0 0% 100% / 0.07)",
-                border: "1px solid hsl(0 0% 100% / 0.1)",
+                background: "white",
+                border: "2px solid #003C64",
               }}
             >
               {/* Icon area */}
               <div
                 className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300"
                 style={{
-                  background: "hsl(0 0% 100% / 0.08)",
-                  border: "1px solid hsl(0 0% 100% / 0.12)",
+                  background: "#F3F5F7",
+                  border: "1px solid #003C64",
                 }}
               >
-                <r.icon size={28} className="sm:hidden" weight="light" style={{ color: "hsl(var(--secondary))" }} />
-                <r.icon size={32} className="hidden sm:block" weight="light" style={{ color: "hsl(var(--secondary))" }} />
+                <r.icon size={28} className="sm:hidden" weight="light" style={{ color: "#000000" }} />
+                <r.icon size={32} className="hidden sm:block" weight="light" style={{ color: "#000000" }} />
               </div>
 
               {/* Title */}
-              <h3 className="text-lg sm:text-xl font-bold mb-3 tracking-tight text-primary-foreground">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 tracking-tight text-black">
                 {r.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm leading-relaxed text-primary-foreground/65 flex-1">
+              <p className="text-sm leading-relaxed text-black/65 flex-1">
                 {r.desc}
               </p>
             </motion.div>
