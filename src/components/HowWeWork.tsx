@@ -42,7 +42,6 @@ export default function HowWeWork() {
     <section
       id="how-we-work"
       className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-muted/30"
-      style={{ backgroundColor: "#003C64" }}
     >
       <div ref={ref} className={`relative container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
