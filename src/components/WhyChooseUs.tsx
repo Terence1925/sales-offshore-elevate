@@ -57,26 +57,25 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 * i, duration: 0.5 }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              /* The White Box Background */
-              className="flex flex-col items-center text-center cursor-default group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 transition-all duration-300"
+              whileHover={{ y: -6, scale: 1.03 }}
+              className="flex flex-col items-center text-center cursor-default group"
             >
-              {/* The Icon Circle Container */}
               <div
                 className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-5 sm:mb-6 transition-all duration-400 group-hover:scale-110"
-                /* Light border and very subtle background for the icon circle */
-                style={{ border: "1px solid #f1f5f9", background: "#f8fafc" }}
+                style={{ border: "2px solid hsl(0 0% 100% / 0.3)", background: "hsl(0 0% 100% / 0.08)" }}
               >
-                {/* Icons updated to Emerald (secondary) and thin weight */}
-                <r.icon size={36} className="sm:hidden text-secondary" weight="thin" />
-                <r.icon size={44} className="hidden sm:block text-secondary" weight="thin" />
+                <r.icon size={36} className="sm:hidden" weight="thin" style={{ color: "hsl(0 0% 100%)" }} />
+                <r.icon size={44} className="hidden sm:block" weight="thin" style={{ color: "hsl(0 0% 100%)" }} />
               </div>
-
-              {/* Title - Black */}
-              <h3 className="text-lg sm:text-xl font-bold mb-3 tracking-tight text-black">{r.title}</h3>
-
-              {/* Description - Black */}
-              <p className="text-sm sm:text-[15px] leading-relaxed font-light max-w-xs text-black/70">{r.desc}</p>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 tracking-tight" style={{ color: "hsl(0 0% 100%)" }}>
+                {r.title}
+              </h3>
+              <p
+                className="text-sm sm:text-[15px] leading-relaxed font-light max-w-xs"
+                style={{ color: "hsl(0 0% 100% / 0.8)" }}
+              >
+                {r.desc}
+              </p>
             </motion.div>
           ))}
         </div>
