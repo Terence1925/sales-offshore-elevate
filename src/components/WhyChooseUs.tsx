@@ -16,7 +16,7 @@ const reasons = [
   {
     icon: Lightning,
     title: "Quick Turnaround",
-    desc: "Fast setup. Get your remote sales team up and running in days, not weeks, so you can focus on scaling while we handle the heavy lifting.",
+    desc: "Fast setup. Get your remote sales team up and running in days, not weeks, so you can focus on scaling while we handle the heavy lifting fast, flawlessly, and built for results.",
   },
   {
     icon: ArrowsOutSimple,
@@ -39,52 +39,46 @@ export default function WhyChooseUs() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="why-us" className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8 bg-primary">
+    <section
+      id="why-us"
+      className="relative overflow-hidden py-16 sm:py-24 lg:py-32 px-5 sm:px-6 lg:px-8"
+      style={{ background: "#F3F5F74C" }}
+    >
       <div ref={ref} className={`container-max fade-in-section ${isVisible ? "is-visible" : ""}`}>
-        {/* Header row */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary-foreground">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
+            style={{ color: "hsl(0 0% 100%)" }}
+          >
             Why Choose Us?
           </h2>
-          <p className="text-sm sm:text-base text-primary-foreground/70 max-w-md lg:text-right leading-relaxed">
-            We offer comprehensive, reliable, and professional sales solutions for every business — ensuring efficiency, scalability, and long-lasting performance.
-          </p>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
           {reasons.map((r, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.06 * i, duration: 0.5 }}
-              className="group rounded-2xl p-6 sm:p-8 flex flex-col cursor-default transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: "hsl(0 0% 100% / 0.07)",
-                border: "1px solid hsl(0 0% 100% / 0.1)",
-              }}
+              transition={{ delay: 0.08 * i, duration: 0.5 }}
+              whileHover={{ y: -6, scale: 1.03 }}
+              className="flex flex-col items-center text-center cursor-default group"
             >
-              {/* Icon area */}
               <div
-                className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300"
-                style={{
-                  background: "hsl(0 0% 100% / 0.08)",
-                  border: "1px solid hsl(0 0% 100% / 0.12)",
-                }}
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-5 sm:mb-6 transition-all duration-400 group-hover:scale-110"
+                style={{ border: "2px solid hsl(0 0% 100% / 0.3)", background: "hsl(0 0% 100% / 0.08)" }}
               >
-                <r.icon size={28} className="sm:hidden" weight="light" style={{ color: "hsl(var(--secondary))" }} />
-                <r.icon size={32} className="hidden sm:block" weight="light" style={{ color: "hsl(var(--secondary))" }} />
+                <r.icon size={36} className="sm:hidden" weight="thin" style={{ color: "hsl(0 0% 100%)" }} />
+                <r.icon size={44} className="hidden sm:block" weight="thin" style={{ color: "hsl(0 0% 100%)" }} />
               </div>
-
-              {/* Title */}
-              <h3 className="text-lg sm:text-xl font-bold mb-3 tracking-tight text-primary-foreground">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 tracking-tight" style={{ color: "hsl(0 0% 100%)" }}>
                 {r.title}
               </h3>
-
-              {/* Description */}
-              <p className="text-sm leading-relaxed text-primary-foreground/65 flex-1">
+              <p
+                className="text-sm sm:text-[15px] leading-relaxed font-light max-w-xs"
+                style={{ color: "hsl(0 0% 100% / 0.8)" }}
+              >
                 {r.desc}
               </p>
             </motion.div>
