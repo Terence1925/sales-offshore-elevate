@@ -5,7 +5,7 @@ import heroImg from "@/assets/hero-team.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-background">
       {/* Left content - 50% */}
       <div className="relative w-full lg:w-1/2 px-5 sm:px-6 lg:px-12 xl:px-20 pt-28 pb-16 sm:pt-32 sm:pb-20 lg:py-0 min-h-[100svh] flex items-center">
         <motion.div
@@ -22,7 +22,7 @@ export default function HeroSection() {
             <span className="text-gradient">Talent</span>
           </h1>
 
-          <p className="text-base sm:text-lg lg:text-xl text-secondary leading-relaxed mb-8 sm:mb-10 max-w-md font-medium">
+          <p className="text-base sm:text-lg lg:text-xl text-accent leading-relaxed mb-8 sm:mb-10 max-w-md font-medium">
             Outsource Your Sales to the Philippines
             <br />
             & Save up to 70% on Costs
