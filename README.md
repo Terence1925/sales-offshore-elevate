@@ -1,73 +1,44 @@
-# Welcome to your Lovable project
+# Sales Offshore: Company Website
 
-## Project info
+The marketing and lead-generation website for **Sales Offshore**, an outsourced sales-staffing agency in the Philippines that serves U.S. businesses. The page has one job: turn a visitor into a booked strategy call.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Live site:** https://www.salesoffshoreph.com
 
-## How can I edit this code?
+**Stack:** React · TypeScript · Vite · Tailwind CSS · Radix UI · Vitest
 
-There are several ways of editing your application.
+![Sales Offshore home page](docs/screenshot.jpg)
 
-**Use Lovable**
+## What is on the page
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+| Section | What it does |
+|---|---|
+| **Hero** | States the offer in one line, with two calls to action: book a strategy call, or get a custom quote. |
+| **Why choose us** | Six short benefits: experience, cost savings, fast setup, flexibility, a sales-only focus, and top talent. |
+| **Services** | What the agency does, from lead generation to closing deals and customer success. |
+| **How we work** | A five-step process, from sharing job requirements to launching the team. |
+| **Social proof** | A "trusted by" strip, a testimonial and animated number counters. |
+| **FAQ** | An accordion that answers the common questions about setup time, quality and pricing. |
+| **Contact** | Office hours, address, phone, email and the booking call to action. |
 
-Changes made via Lovable will be committed automatically to this repo.
+The layout is fully responsive, and the page links to a Privacy Policy and Terms.
 
-**Use your preferred IDE**
+## Run it locally
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install
+npm run dev      # start the dev server
+npm run build    # production build in dist/
+npm test         # run the tests (Vitest)
 ```
 
-**Edit a file directly in GitHub**
+## Project layout
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/components   one file per page section (HeroSection, WhyChooseUs, ServicesSection, HowWeWork, ...)
+src/components/ui  shared interface pieces (buttons, accordion, dialogs)
+src/pages        the pages of the site
+src/test         tests
+public/          static files
+```
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Built by [Terence](https://github.com/Terence1925). Hosted on Hostinger.
